@@ -68011,7 +68011,7 @@ OO(a,b){var s=0,r=A.Q(t.z),q,p=this,o,n
 var $async$lX=A.M(function(c,d){if(c===1)return A.N(d,r)
 while(true)switch(s){case 0:o=t.N
 s=3
-return A.a2(p.a.a4X("GET",A.rD("http://localhost:10000/"+b),A.ay(["Content-Type","application/json"],o,o)),$async$lX)
+return A.a2(p.a.a4X("GET",A.rD("http://94.103.86.122:3001/"+b),A.ay(["Content-Type","application/json","Access-Control-Allow-Origin","*"],o,o)),$async$lX)
 case 3:n=d
 if(n.b===200){q=A.ajK(A.ajn(n.e).c.a.i(0,"charset")).d7(0,n.x)
 s=1
@@ -68024,7 +68024,7 @@ acF(a,b){var s=0,r=A.Q(t.z),q,p=this,o,n
 var $async$qC=A.M(function(c,d){if(c===1)return A.N(d,r)
 while(true)switch(s){case 0:o=t.N
 s=3
-return A.a2(p.a.p2("POST",A.rD("http://localhost:10000/"+a),A.ay(["Content-Type","application/json"],o,o),b,null),$async$qC)
+return A.a2(p.a.p2("POST",A.rD("http://94.103.86.122:3001/"+a),A.ay(["Content-Type","application/json"],o,o),b,null),$async$qC)
 case 3:n=d
 o=n.b
 A.ii("Response: "+B.e.j(o))
