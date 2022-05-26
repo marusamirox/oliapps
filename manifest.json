@@ -1,6 +1,6 @@
 {
-    "name": "olimob_apps_web_platform",
-    "short_name": "olimob_apps_web_platform",
+    "name": "epg_web_platform",
+    "short_name": "epg_web_platform",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

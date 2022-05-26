@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <base href="/oliapps/">
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -10,65 +24,238 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="olimob_apps_web_platform">
+  <meta name="apple-mobile-web-app-title" content="epg_web_platform">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <title>olimob_apps_web_platform</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <title>EPG Web Platform</title>
   <link rel="manifest" href="manifest.json">
 
-  <script src="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.js"></script>
-  <link rel="preload" href="https://unpkg.com/canvaskit-wasm@0.33.0/bin/canvaskit.wasm" as="fetch" crossOrigin="anonymous">
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = '2425507749';
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+</head>
+
+<body>
+  <!-- <div class="loader-4 center"></div> -->
+  <div class="loader-4 center"><span></span></div>
+  <script>
+    window.addEventListener('load', function (ev) {
+      var loading = document.querySelector('#loading');
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        }
+      }).then(function (engineInitializer) {
+        return engineInitializer.initializeEngine();
+      }).then(function (appRunner) {
+        return appRunner.runApp();
+      });
+    });
+  </script>
+
+
 
   <style>
-    .loading {
+    /* Loader 4 */
+    .loader-4 {
+      height: 100vh;
+      --primary: rgb(0, 149, 255);
+      --secondary: rgb(0, 106, 255);
+      transform: scale(3);
       display: flex;
+      flex: 1;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: center;
       justify-content: center;
       align-items: center;
-      margin: 0;
+      align-self: center;
+      align-content: center;
+    }
+
+    .loader-4::after {
+      content: "";
+      display: block;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
-    
-    .loader {
-      border: 16px solid #f3f3f3;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      background: var(--primary);
       border-radius: 50%;
-      border: 15px solid ;
-      border-top: 16px solid blue;
-      border-right: 16px solid white;
-      border-bottom: 16px solid blue;
-      border-left: 16px solid white;
-      width: 120px;
-      height: 120px;
-      -webkit-animation: spin 2s linear infinite;
-      animation: spin 2s linear infinite;
+      -webkit-animation: loader-4-1 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+      animation: loader-4-1 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
     }
-    
-    @-webkit-keyframes spin {
+
+    @-webkit-keyframes loader-4-1 {
+      0% {
+        -webkit-transform: scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        -webkit-transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        -webkit-transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    @keyframes loader-4-1 {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    .loader-4 span {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      height: 32px;
+      width: 32px;
+      -webkit-animation: loader-4-2 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+      animation: loader-4-2 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+    }
+
+    @-webkit-keyframes loader-4-2 {
       0% {
         -webkit-transform: rotate(0deg);
       }
+
+      50% {
+        -webkit-transform: rotate(180deg);
+      }
+
       100% {
         -webkit-transform: rotate(360deg);
       }
     }
-    
-    @keyframes spin {
+
+    @keyframes loader-4-2 {
       0% {
         transform: rotate(0deg);
       }
+
+      50% {
+        transform: rotate(180deg);
+      }
+
       100% {
         transform: rotate(360deg);
       }
     }
+
+    .loader-4 span::before,
+    .loader-4 span::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      height: 12px;
+      width: 12px;
+      background: var(--secondary);
+      border-radius: 50%;
+      -webkit-animation: loader-4-3 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+      animation: loader-4-3 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+    }
+
+    @-webkit-keyframes loader-4-3 {
+      0% {
+        -webkit-transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      50% {
+        -webkit-transform: translate3d(-16px, 0, 0) scale(.5);
+      }
+
+      100% {
+        -webkit-transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    @keyframes loader-4-3 {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate3d(-16px, 0, 0) scale(.5);
+      }
+
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    .loader-4 span::after {
+      -webkit-animation: loader-4-4 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+      animation: loader-4-4 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+    }
+
+    @-webkit-keyframes loader-4-4 {
+      0% {
+        -webkit-transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      50% {
+        -webkit-transform: translate3d(16px, 0, 0) scale(.5);
+      }
+
+      100% {
+        -webkit-transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    @keyframes loader-4-4 {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate3d(16px, 0, 0) scale(.5);
+      }
+
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
   </style>
-</head>
-<body>
-  <div class="loading">
-    <div class="loader"></div>
-  </div>
-  <script src="main.dart.js" type="application/javascript"></script>
 </body>
+
 </html>
